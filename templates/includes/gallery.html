@@ -1,0 +1,14 @@
+{% load static %}
+
+{% for gallery in gallery_data %}
+<section id="{{ gallery.gallery_id }}" class="tm-section">
+    <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">{{ gallery.name }}</h2></header>
+    <div class="tm-gallery-container tm-gallery-{{ forloop.counter }}">
+        {% for item in gallery.gallery_img %}
+        <div class="tm-img-container tm-img-container-1">
+            <a href="{% static 'img/' %}{{ item.src }}"><img src="{% static 'img/' %}{{ item.src }}" alt="{{ item.alt }}" class="img-fluid tm-img-tn"></a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
