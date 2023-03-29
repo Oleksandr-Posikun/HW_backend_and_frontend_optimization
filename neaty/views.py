@@ -25,10 +25,19 @@ g_third = [
 
 
 def index(request):
+    form_data = {
+        'name': request.POST.get("contact_name"),
+        'mail': request.POST.get("contact_email"),
+        'massage': request.POST.get("contact_message"),
+    }
+
     params = {
         'gallery_data': [{'name': 'Gallery One', 'gallery_id': 'galleryone', 'gallery_img': g_one},
                          {'name': 'Gallery Second', 'gallery_id': 'secondgallery', 'gallery_img': g_second},
-                         {'name': 'Gallery Third', 'gallery_id': 'thirdgallery', 'gallery_img': g_third}]
+                         {'name': 'Gallery Third', 'gallery_id': 'thirdgallery', 'gallery_img': g_third}],
+        'data': form_data,
 
     }
     return render(request, 'index.html', params)
+
+

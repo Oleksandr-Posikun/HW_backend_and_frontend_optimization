@@ -3,4 +3,4 @@ from neaty.views import index
 
 urlpatterns = [
     path('', index),
-]
+    ]
